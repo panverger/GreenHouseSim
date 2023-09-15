@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="el" dir="ltr">
+<head>
+    <title>Virtual Green House</title>
+	<meta charset="utf-8">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"> </script>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script src="config.js" type="text/javascript"> </script>	
+	<script src="mqtt_controller_admin.js" type="text/javascript"> </script>
+	<link rel="stylesheet" type="text/css" href="main.css">
+
+
+</head>
+   
+
+<body>
+ 
+<div class=choices>
+	<div>
+	  <input type="checkbox" id="lights" checked onClick=sendLight()>
+	  <label for="lights"></label>
+	  	<div class="caption">
+	  <span >Lights</span>
+	</div>	
+	</div>
+
+	<div>
+	   <input class="vrange" type="range" step="0.1" value="0.2" min="0.2" max="0.5" id="transp" onChange=sendTransp(this.value)>
+	<div class="caption">
+		<span>Glass Transparency</span>
+	</div>		   
+	</div>	
+	
+	<div>
+	<div>
+	   <input class="vrange" type="range" step="1" value="0" min="0" max="200" id="sliderTopLeft" onChange=sendTopLeft(this.value)>
+	<div class="caption">
+		<span>Left Top</span>
+	</div>		   
+	</div>
+
+	<div >
+		<input class="vrange" type="range" step="1" value="0" min="0" max="200" id="sliderTopRight" onChange=sendTopRight(this.value)>
+	<div class="caption">
+		<span>Right Top</span>
+	</div>			
+	</div>
+	</div>
+
+	<div>
+		<input class="vrange" type="range" step="1" value="0" min="0" max="5" id="sliderFan" onChange=sendVent(this.value)>
+	<div class="caption">
+		<span>Ventilation</span>
+	</div>		
+	</div>
+
+
+<div>
+<h2>Inside data </h2>
+   	<div>
+	   <input class="vrange" type="range" step="1" value="20" min="-10" max="50" id="inTemperature" onChange=sendInTemp(this.value)>
+	   <span id=inTempV></span>
+	<div class="caption">
+		<span>In Temperature</span>
+	</div>		   
+	</div>
+
+   	<div>
+	   <input class="vrange" type="range" step="1" value="50" min="0" max="100" id="inHhumidity" onChange=sendInHum(this.value)>
+	   <span id=inHumV></span>
+	<div class="caption">
+		<span>In Humidity</span>
+	</div>		   
+	</div>  
+
+   
+</div> 
+</div>
+
+
+ 	<script>
+	MQTTconnect();
+	</script>
+   </body>	

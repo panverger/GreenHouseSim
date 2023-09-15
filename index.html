@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="el" dir="ltr">
+<head>
+    <title>Virtual Green House</title>
+	<meta charset="utf-8">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"> </script>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="main.css">
+
+</head>
+   
+
+     <body>
+ <div class="html-embed w-embed w-iframe"><iframe width="100%" height="100%" frameborder="0" allowfullscreen="" src="GreenHouse.html"></iframe></div>
+ <a href="#" id="fullscreen-button" class="fullscreen w-button">‍</a>
+
+<div class=choices>	 
+ 	<div class="caption">
+	  <span id=realPlace>Reth</span>
+	</div>
+	<div>
+	  <input type="checkbox" id="lights" checked >
+	  <label for="lights"></label>
+	  	<div class="caption">
+	  <span >Lights</span>
+	</div>	
+	</div>
+
+	<div>
+	   <input class="vrange" type="range" step="0.1" value="0.2" min="0.2" max="0.5" id="transp" >
+	<div class="caption">
+		<span>Glass Transparency</span>
+	</div>		   
+	</div>	
+	
+	<div>
+	<div>
+	   <input class="vrange" type="range" step="1" value="0" min="0" max="200" id="sliderTopLeft" >
+	<div class="caption">
+		<span>Left Top</span>
+	</div>		   
+	</div>
+
+	<div >
+		<input class="vrange" type="range" step="1" value="0" min="0" max="200" id="sliderTopRight" >
+	<div class="caption">
+		<span>Right Top</span>
+	</div>			
+	</div>
+	</div>
+
+	<div>
+		<input class="vrange" type="range" step="1" value="0" min="0" max="5" id="sliderFan" >
+	<div class="caption">
+		<span>Ventilation</span>
+	</div>		
+	</div>
+
+<div>
+<h2>Outside data </h2>
+   Temperature: <span id=temperature></span> &#8451;<br>
+   Humidity: <span id=humidity></span> %<br>
+   Wind Dir: <span id=winddir></span>'<br>
+   Wind Speed: <span id=windspeed></span> Km/h<br>
+   Solar Radiation: <span id=solarRad></span>
+   
+</div>
+
+<div>
+<h2>Inside data* </h2>
+   Temperature: <span id=inTemp>40</span> &#8451;<br>
+   Humidity: <span id=inHumidity>80</span> %<br>
+   Panel's Power: <span id=panelWatt>0</span> W/&#13217; 
+   
+</div> 
+</div>
+
+	<script src="config.js" type="text/javascript"> </script>	
+	<script src="mqtt_controller.js" type="text/javascript"> </script>	
+	<script>
+	//set place
+	MQTTconnect();
+	</script>
+
+   </body>	
