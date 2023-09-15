@@ -1,0 +1,114 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tab name="Init" type="InitTab" active="false" scrollx="6.000000000000227" scrolly="0" scale="0.9"></tab>
+  <tab name="New Tab" type="CommonTab" active="true" scrollx="-6.999999999999545" scrolly="0" scale="0.9">
+    <block xmlns="https://developers.google.com/blockly/xml" type="checkPerformance" id="9Kr~1[VI)Da#+cfO3gw0" x="270" y="170">
+      <statement name="DO_HIGH">
+        <block type="comment" id="l+Kdp8Yg=,4~[lB/B}o.">
+          <field name="TEXT">Increase rendering quality for powerful devices with Retina displays</field>
+          <next>
+            <block type="controls_if" id="C:+Yk*n$(R(%bEFH`F@F">
+              <value name="IF0">
+                <block type="featureAvailable" id="VMtr(?)SBdat4m~b%0V]">
+                  <field name="FEATURE">RETINA</field>
+                </block>
+              </value>
+              <statement name="DO0">
+                <block type="setScreenScale" id=")YFrdU;*s*v[ukLf$dtD">
+                  <value name="FACTOR">
+                    <shadow type="math_number" id="kaN~-%bjd+Xg}{-ax,..">
+                      <field name="NUM">1.5</field>
+                    </shadow>
+                  </value>
+                </block>
+              </statement>
+              <next>
+                <block type="bloom" id="6*P9a-(e@s$gc%B)P,$9">
+                  <value name="THRESHOLD">
+                    <shadow type="math_number" id="C^-LX@orUL?TWOUvSO;%">
+                      <field name="NUM">0.8</field>
+                    </shadow>
+                  </value>
+                  <value name="STRENGTH">
+                    <shadow type="math_number" id="~df~q24otfmCRZX/~ULr">
+                      <field name="NUM">0.3</field>
+                    </shadow>
+                  </value>
+                  <value name="RADIUS">
+                    <shadow type="math_number" id="(uoyE@T[=Z|yC.H)U__p">
+                      <field name="NUM">0.4</field>
+                    </shadow>
+                  </value>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+      <statement name="DO_LOW">
+        <block type="comment" id=")3k4Pxl3kJreU=f/@Bfm">
+          <field name="TEXT">Perform aggressive optimizations for poor devices</field>
+          <next>
+            <block type="removePostprocessing" id=")HV9gFJ3wL]!INx^Efn*">
+              <field name="MODE">ALL</field>
+              <next>
+                <block type="setLightParam" id=",AlS|VEx(o.}4C;SuR)?">
+                  <mutation xmlns="http://www.w3.org/1999/xhtml" type="USE_SHADOW"></mutation>
+                  <field name="TYPE">USE_SHADOW</field>
+                  <value name="PARAM">
+                    <block type="logic_boolean" id="~+?!h/OzfTs/yz%XZL^A">
+                      <field name="BOOL">FALSE</field>
+                    </block>
+                  </value>
+                  <value name="OBJECT">
+                    <shadow type="objectList" id="Lq=HZlObEKsCzN9h`,t-">
+                      <field name="FIELDNAME">&lt;none&gt;</field>
+                    </shadow>
+                    <block type="getObjectsFrom" id="mW1)iDw$tV4xyYX?Oy8r">
+                      <field name="TYPE">LIGHT</field>
+                      <value name="OBJ">
+                        <block type="allObjectList" id="6u[^LA23T(KNT=p]7|0H"></block>
+                      </value>
+                    </block>
+                  </value>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="setObjTransform" id="/0BUK4BM^w!*nf*A4zwE" x="310" y="630">
+      <mutation xmlns="http://www.w3.org/1999/xhtml" usevectorslot="false" useworldspace="false"></mutation>
+      <field name="MODE">position</field>
+      <field name="OFFSET">TRUE</field>
+      <value name="TARGETOBJ">
+        <shadow type="objectList" id="d#_l+cWT4E`I_TRf!8y^">
+          <field name="FIELDNAME">&lt;none&gt;</field>
+        </shadow>
+        <block type="cloneObject" id="O7qR37BP:Btw|o+!JWYN">
+          <value name="OBJECTINPUT">
+            <shadow type="objectList" id="N*?BqqoV$sJG{R5PFtQ6">
+              <field name="FIELDNAME">Grass N120319</field>
+            </shadow>
+          </value>
+        </block>
+      </value>
+      <value name="X">
+        <block type="math_number" id="5GWqxk(]~pa9E+w.].+s">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="Y">
+        <block type="math_number" id="X`FNlu@YZ4./T~f4~D)B">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <value name="Z">
+        <block type="math_number" id="/u,/3q{0Iz%9I]C-4W3q">
+          <field name="NUM">5</field>
+        </block>
+      </value>
+    </block>
+  </tab>
+  <editorsettings viewport-x="1134" viewport-y="37" viewport-w="768" viewport-h="459.5" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+</xml>

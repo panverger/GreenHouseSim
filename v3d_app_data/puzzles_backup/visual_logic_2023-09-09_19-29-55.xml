@@ -1,0 +1,1158 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tab name="Init" type="InitTab" active="false" scrollx="776.9999999999994" scrolly="189" scale="0.9">
+    <block xmlns="https://developers.google.com/blockly/xml" type="initSettings" id="}DUC[%zhVCP7w:bFsSMq" x="-630" y="-210">
+      <field name="LOAD_COMP_ASSETS">FALSE</field>
+      <field name="FULLSCREEN">FALSE</field>
+      <field name="BKG_TRANSPARENCY">FALSE</field>
+      <field name="PRESERVE_DRAW_BUF">FALSE</field>
+      <field name="FADE_ANNOTATIONS">TRUE</field>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="checkPerformance" id="[o_gr))RM?*QK^,$hUDx" x="-630" y="10">
+      <statement name="DO_HIGH">
+        <block type="comment" id="(zmMHxD6b0fGN^,!*@]j">
+          <field name="TEXT">Increase rendering quality for powerful devices with Retina displays</field>
+          <next>
+            <block type="controls_if" id="a.6E+R(t28(8KUUln3oT">
+              <value name="IF0">
+                <block type="featureAvailable" id="w=uB`S?IqUc$)_Z_Iuv?">
+                  <field name="FEATURE">RETINA</field>
+                </block>
+              </value>
+              <statement name="DO0">
+                <block type="setScreenScale" id="eLfa:mfFq_/Xcb#b}/De">
+                  <value name="FACTOR">
+                    <shadow type="math_number" id="+rdU3fw)m2o,ii365;zM">
+                      <field name="NUM">1.5</field>
+                    </shadow>
+                  </value>
+                </block>
+              </statement>
+              <next>
+                <block type="bloom" id="Ce4A8MpVOR9i}-w~h]-^">
+                  <value name="THRESHOLD">
+                    <shadow type="math_number" id="vcCABh?^gLM^BPi8MHX:">
+                      <field name="NUM">0.8</field>
+                    </shadow>
+                  </value>
+                  <value name="STRENGTH">
+                    <shadow type="math_number" id="V[5v_$W@/O*GKsrnP.i2">
+                      <field name="NUM">0.3</field>
+                    </shadow>
+                  </value>
+                  <value name="RADIUS">
+                    <shadow type="math_number" id=")2TrPVo_]Fkw?5KqXVPM">
+                      <field name="NUM">0.4</field>
+                    </shadow>
+                  </value>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+      <statement name="DO_LOW">
+        <block type="comment" id="?iwTA^-[DfJ;S4wR,Ftg">
+          <field name="TEXT">Perform aggressive optimizations for poor devices</field>
+          <next>
+            <block type="removePostprocessing" id="~QE}B%xgd]%eX$1df1B`">
+              <field name="MODE">ALL</field>
+              <next>
+                <block type="setLightParam" id="f,xf+OAG6[!fZa5q%N7@">
+                  <mutation xmlns="http://www.w3.org/1999/xhtml" type="USE_SHADOW"></mutation>
+                  <field name="TYPE">USE_SHADOW</field>
+                  <value name="PARAM">
+                    <block type="logic_boolean" id="I}z+/lal!$+}B32#+K}x">
+                      <field name="BOOL">FALSE</field>
+                    </block>
+                  </value>
+                  <value name="OBJECT">
+                    <shadow type="objectList" id="4$8{*M57!7GkK0{10Oyc">
+                      <field name="FIELDNAME">&lt;none&gt;</field>
+                    </shadow>
+                    <block type="getObjectsFrom" id="5Hk@]^3a6$GqTa_=6SGu">
+                      <field name="TYPE">LIGHT</field>
+                      <value name="OBJ">
+                        <block type="allObjectList" id="o?`cQ1SA]peezQ%;GFUw"></block>
+                      </value>
+                    </block>
+                  </value>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+  </tab>
+  <tab name="Interactive" type="CommonTab" active="true" scrollx="700.4473876953125" scrolly="-577.8143310546875" scale="1">
+    <variables xmlns="https://developers.google.com/blockly/xml">
+      <variable id="OBb]4j3GbWG.~Y).OY`)">y</variable>
+      <variable id=",8eU|gT`R:UYnrD|NRBZ">x</variable>
+      <variable id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</variable>
+      <variable id="k{7maIWi:K7.o/3:[Q_b">rotating</variable>
+      <variable id="t1c/4`^`AzVesYYAH}Sa">top_left_pos</variable>
+      <variable id=".Y]a:y$S{t?8Vv3,UC!_">top_right_pos</variable>
+      <variable id="Q/#2hvkLh]2k]?euKmKJ">top_sound</variable>
+      <variable id=":@D{bSoa/~uNnyr;U.ag">fan_sound</variable>
+      <variable id="EEe^7z$)%p,,y6},nf4:">top_status_left</variable>
+      <variable id="]D+OYVGSCod/-E0i:mvL">top_status_right</variable>
+    </variables>
+    <block xmlns="https://developers.google.com/blockly/xml" type="procedures_defnoreturn" id="kK,,K$JXnYPNkSk}Jv}L" x="-110" y="-670">
+      <mutation>
+        <arg name="y" varid="OBb]4j3GbWG.~Y).OY`)"></arg>
+        <arg name="x" varid=",8eU|gT`R:UYnrD|NRBZ"></arg>
+      </mutation>
+      <field name="NAME">rotateTopLeft</field>
+      <comment pinned="false" h="80" w="160">Describe this function...</comment>
+      <statement name="STACK">
+        <block type="variables_set" id="FH[VYJT/5*Lls:OsDo=,">
+          <field name="VAR" id="k{7maIWi:K7.o/3:[Q_b">rotating</field>
+          <value name="VALUE">
+            <block type="logic_boolean" id="YzHuheE}[4ncg?i+GXvE">
+              <field name="BOOL">TRUE</field>
+            </block>
+          </value>
+          <next>
+            <block type="playSound" id="5^$HuV/xxz!CU#3D5DGc">
+              <field name="LOOP">FALSE</field>
+              <value name="VALUE">
+                <block type="variables_get" id="cVz`~)ZqG`gMeHBbUvxw">
+                  <field name="VAR" id="Q/#2hvkLh]2k]?euKmKJ">top_sound</field>
+                </block>
+              </value>
+              <next>
+                <block type="controls_ifelse" id="Xexxx/(f}Or~*HF^M=9U">
+                  <value name="IF0">
+                    <block type="logic_compare" id="4W}iQMIT{bD-B8xeV1n@">
+                      <field name="OP">GT</field>
+                      <value name="A">
+                        <block type="variables_get" id="n}3^BfgYQMiK4P,gl`B5">
+                          <field name="VAR" id="OBb]4j3GbWG.~Y).OY`)">y</field>
+                        </block>
+                      </value>
+                      <value name="B">
+                        <block type="variables_get" id="JcHhtr;Mq3X7TTZ_*X*Z">
+                          <field name="VAR" id=",8eU|gT`R:UYnrD|NRBZ">x</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO0">
+                    <block type="playAnimationAdv" id="rH|.jOrEtJ]x0`Di7gjC">
+                      <mutation xmlns="http://www.w3.org/1999/xhtml" advplaybackoptions="true" enablewhenfinished="true"></mutation>
+                      <field name="REVERSED">FALSE</field>
+                      <field name="LOOP">LoopOnce</field>
+                      <value name="VALUE">
+                        <block type="animationList" id="ZqkaCfK2pr@.!njX^z*k">
+                          <field name="FIELDNAME">topLeft</field>
+                        </block>
+                      </value>
+                      <value name="FROM">
+                        <shadow type="math_number" id="o~mci`:V+^nZUheV83mV">
+                          <field name="NUM">0</field>
+                        </shadow>
+                        <block type="variables_get" id="kxm[!P^8u[9I|}X~!X.m">
+                          <field name="VAR" id=",8eU|gT`R:UYnrD|NRBZ">x</field>
+                        </block>
+                      </value>
+                      <value name="TO">
+                        <shadow type="math_number" id="#`Oeax|%lL_+cePucdSR">
+                          <field name="NUM">200</field>
+                        </shadow>
+                        <block type="variables_get" id="CA@9%SBf:_P#^aR.~[oR">
+                          <field name="VAR" id="OBb]4j3GbWG.~Y).OY`)">y</field>
+                        </block>
+                      </value>
+                      <value name="SPEED">
+                        <shadow type="math_number" id="5}mt[^=zN3({}0Y=GtFc">
+                          <field name="NUM">1</field>
+                        </shadow>
+                      </value>
+                      <statement name="DO">
+                        <block type="variables_set" id="`|LgRjyl+z2oN6r}r4+O">
+                          <field name="VAR" id="EEe^7z$)%p,,y6},nf4:">top_status_left</field>
+                          <value name="VALUE">
+                            <block type="text" id="vsAN_Um$jfPh[+;eT|M!">
+                              <field name="TEXT">open</field>
+                            </block>
+                          </value>
+                          <next>
+                            <block type="stopSound" id=".,oBz|?e}ut[P]Wu,e)w">
+                              <value name="VALUE">
+                                <block type="variables_get" id="Fph77Wt[#~.PrUw[ufoy">
+                                  <field name="VAR" id="Q/#2hvkLh]2k]?euKmKJ">top_sound</field>
+                                </block>
+                              </value>
+                              <next>
+                                <block type="variables_set" id="R[GSc(L8YW[dnWJV!WYo">
+                                  <field name="VAR" id="t1c/4`^`AzVesYYAH}Sa">top_left_pos</field>
+                                  <value name="VALUE">
+                                    <block type="variables_get" id="OYc@@TnwDJ,*zhxv}2z:">
+                                      <field name="VAR" id="OBb]4j3GbWG.~Y).OY`)">y</field>
+                                    </block>
+                                  </value>
+                                  <next>
+                                    <block type="variables_set" id="`-mM!3::AwLfYq].jKz%">
+                                      <field name="VAR" id="k{7maIWi:K7.o/3:[Q_b">rotating</field>
+                                      <value name="VALUE">
+                                        <block type="logic_boolean" id="kc6#,A:X!k)dtMr5*E7J">
+                                          <field name="BOOL">FALSE</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </next>
+                                </block>
+                              </next>
+                            </block>
+                          </next>
+                        </block>
+                      </statement>
+                    </block>
+                  </statement>
+                  <statement name="ELSE">
+                    <block type="playAnimationAdv" id="?FaSb!$o]-MIZ6aHkU#A">
+                      <mutation xmlns="http://www.w3.org/1999/xhtml" advplaybackoptions="true" enablewhenfinished="true"></mutation>
+                      <field name="REVERSED">TRUE</field>
+                      <field name="LOOP">LoopOnce</field>
+                      <value name="VALUE">
+                        <block type="animationList" id="ob3^^R~;cB8pn7;qif|=">
+                          <field name="FIELDNAME">topLeft</field>
+                        </block>
+                      </value>
+                      <value name="FROM">
+                        <shadow type="math_number" id="v-nj2ny#@V:/4%0v}Kz7">
+                          <field name="NUM">0</field>
+                        </shadow>
+                        <block type="variables_get" id="#N5S64Ywvw5OM[df4Iz-">
+                          <field name="VAR" id="OBb]4j3GbWG.~Y).OY`)">y</field>
+                        </block>
+                      </value>
+                      <value name="TO">
+                        <shadow type="math_number" id="fo[tu]7bMMa0tex_1AN?">
+                          <field name="NUM">200</field>
+                        </shadow>
+                        <block type="variables_get" id="$#9ZK##k;[(9P@h=fyi~">
+                          <field name="VAR" id=",8eU|gT`R:UYnrD|NRBZ">x</field>
+                        </block>
+                      </value>
+                      <value name="SPEED">
+                        <shadow type="math_number" id="ERdFHy;F#e_4cPIdH_nw">
+                          <field name="NUM">1</field>
+                        </shadow>
+                      </value>
+                      <statement name="DO">
+                        <block type="variables_set" id="f.?i}lfk[,QDCPsNVR*A">
+                          <field name="VAR" id="EEe^7z$)%p,,y6},nf4:">top_status_left</field>
+                          <value name="VALUE">
+                            <block type="text" id="Cub=?`zr5sMs{u;VSQAR">
+                              <field name="TEXT">closed</field>
+                            </block>
+                          </value>
+                          <next>
+                            <block type="stopSound" id="`QcSP{6;L(_^8].?){v_">
+                              <value name="VALUE">
+                                <block type="variables_get" id="[+*C:B+|H=h3_sxGR2A3">
+                                  <field name="VAR" id="Q/#2hvkLh]2k]?euKmKJ">top_sound</field>
+                                </block>
+                              </value>
+                              <next>
+                                <block type="variables_set" id="XR|^1Xpmcq*gur~jSHR}">
+                                  <field name="VAR" id="t1c/4`^`AzVesYYAH}Sa">top_left_pos</field>
+                                  <value name="VALUE">
+                                    <block type="variables_get" id="g}20aocc^)77:h:5LE_#">
+                                      <field name="VAR" id="OBb]4j3GbWG.~Y).OY`)">y</field>
+                                    </block>
+                                  </value>
+                                  <next>
+                                    <block type="variables_set" id="X8kRZiuW~.cC/t)Dp]*W">
+                                      <field name="VAR" id="k{7maIWi:K7.o/3:[Q_b">rotating</field>
+                                      <value name="VALUE">
+                                        <block type="logic_boolean" id="D.Ux2czz![0`bApS36sY">
+                                          <field name="BOOL">FALSE</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </next>
+                                </block>
+                              </next>
+                            </block>
+                          </next>
+                        </block>
+                      </statement>
+                    </block>
+                  </statement>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="stopAnimation" id="#?;`qtOGRJTHjC;EZB/U" x="-1190" y="-430">
+      <value name="VALUE">
+        <shadow type="animationList" id="+-[P02oQ@v:xX*`;v?jC">
+          <field name="FIELDNAME">propeller</field>
+        </shadow>
+      </value>
+      <next>
+        <block type="stopAnimation" id="@mnNo~j5heJHb^tlUv=!">
+          <value name="VALUE">
+            <shadow type="animationList" id="%olk~R7;@2;O1xm4[*_u">
+              <field name="FIELDNAME">topLeft</field>
+            </shadow>
+          </value>
+          <next>
+            <block type="stopAnimation" id="-@1j!ZovwKnS%#UPP5Df">
+              <value name="VALUE">
+                <shadow type="animationList" id="!Ts-b-WjCkHQL2.zd[(?">
+                  <field name="FIELDNAME">topRight</field>
+                </shadow>
+              </value>
+            </block>
+          </next>
+        </block>
+      </next>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="variables_set" id="=Frm#_o;0^%Uxnm_l{rI" x="-890" y="-430">
+      <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+      <value name="VALUE">
+        <block type="math_number" id="/i*,mb/i)XfpEN)i.9fC">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+      <next>
+        <block type="variables_set" id="a`I6lonXfk|ztKmU#~I@">
+          <field name="VAR" id="t1c/4`^`AzVesYYAH}Sa">top_left_pos</field>
+          <value name="VALUE">
+            <block type="math_number" id="}tq:/A8AL!c(vgAfKTi^">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <next>
+            <block type="variables_set" id="|UO)+{dD|xUfW`b6cc/e">
+              <field name="VAR" id=".Y]a:y$S{t?8Vv3,UC!_">top_right_pos</field>
+              <value name="VALUE">
+                <block type="math_number" id="kh=4(So{H;WcDLHu/|jn">
+                  <field name="NUM">0</field>
+                </block>
+              </value>
+              <next>
+                <block type="variables_set" id="AhSq~)N~-qqP2U79@xGm">
+                  <field name="VAR" id="Q/#2hvkLh]2k]?euKmKJ">top_sound</field>
+                  <value name="VALUE">
+                    <block type="loadSoundAdv" id="MYY7[-!(i:v{%VVo|s.^">
+                      <field name="TYPE">SOUND</field>
+                      <value name="URL">
+                        <shadow type="text" id="W~`UZxzK:c#E,Jj2r?(X">
+                          <field name="TEXT">./media/top_sound1.mp3</field>
+                        </shadow>
+                      </value>
+                    </block>
+                  </value>
+                  <next>
+                    <block type="variables_set" id="}!pqG9B%|W7k$P!:/MOK">
+                      <field name="VAR" id=":@D{bSoa/~uNnyr;U.ag">fan_sound</field>
+                      <value name="VALUE">
+                        <block type="loadSoundAdv" id="_.azewx#q^/1gX18o(TD">
+                          <field name="TYPE">SOUND</field>
+                          <value name="URL">
+                            <shadow type="text" id="0ZPWs^$Bb29SMHlGt2d9">
+                              <field name="TEXT">./media/fan_sound.mp3</field>
+                            </shadow>
+                          </value>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="variables_set" id="6PZs/KPAky$Ug%NKV%hs">
+                          <field name="VAR" id="EEe^7z$)%p,,y6},nf4:">top_status_left</field>
+                          <value name="VALUE">
+                            <block type="text" id="rML+-,5`TZ?o6K6!(PMA">
+                              <field name="TEXT">closed</field>
+                            </block>
+                          </value>
+                          <next>
+                            <block type="variables_set" id="=~#r,=[n*bDo+m~=vwEK">
+                              <field name="VAR" id="]D+OYVGSCod/-E0i:mvL">top_status_right</field>
+                              <value name="VALUE">
+                                <block type="text" id="x-kv6RN|B}-Hpw`zvUN6">
+                                  <field name="TEXT">closed</field>
+                                </block>
+                              </value>
+                            </block>
+                          </next>
+                        </block>
+                      </next>
+                    </block>
+                  </next>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </next>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="whenClicked" id="9JVS-FlS9[qD;hHhDt,t" inline="false" disabled="true" x="-1190" y="-150">
+      <mutation xmlns="http://www.w3.org/1999/xhtml" adveventoptions="false" enableifmissed="false"></mutation>
+      <field name="X_RAY">FALSE</field>
+      <field name="DOUBLE_CLICK">FALSE</field>
+      <field name="LEFT_BUTTON">TRUE</field>
+      <field name="MIDDLE_BUTTON">TRUE</field>
+      <field name="RIGHT_BUTTON">TRUE</field>
+      <value name="VALUE">
+        <shadow type="objectList" id="$.G|n|VmxgE}uR/F=5xq">
+          <field name="FIELDNAME">topLeft</field>
+        </shadow>
+      </value>
+      <statement name="DO">
+        <block type="controls_if" id="3k$0JVB9[iZNLXrDo=~h">
+          <value name="IF0">
+            <block type="logic_negate" id="fTabD~R4jody)on_cBW$">
+              <value name="BOOL">
+                <block type="variables_get" id="LZZuQq5+Hk]2~ZaLyR?%">
+                  <field name="VAR" id="k{7maIWi:K7.o/3:[Q_b">rotating</field>
+                </block>
+              </value>
+            </block>
+          </value>
+          <statement name="DO0">
+            <block type="procedures_callnoreturn" id="LJk%(I*q2/zLtWj`G!1+">
+              <mutation name="rotateTopLeft">
+                <arg name="y"></arg>
+                <arg name="x"></arg>
+              </mutation>
+              <value name="ARG0">
+                <block type="math_number" id="w~MX^DHlJ-Zf|RdMhdV1">
+                  <field name="NUM">200</field>
+                </block>
+              </value>
+              <value name="ARG1">
+                <block type="math_number" id="-/1~+M+.`r+iwH4mnUTR">
+                  <field name="NUM">0</field>
+                </block>
+              </value>
+            </block>
+          </statement>
+        </block>
+      </statement>
+      <next>
+        <block type="whenClicked" id="i}}:t);f.Jcx2kQjCWBs" inline="false" disabled="true">
+          <mutation xmlns="http://www.w3.org/1999/xhtml" adveventoptions="false" enableifmissed="false"></mutation>
+          <field name="X_RAY">FALSE</field>
+          <field name="DOUBLE_CLICK">FALSE</field>
+          <field name="LEFT_BUTTON">TRUE</field>
+          <field name="MIDDLE_BUTTON">TRUE</field>
+          <field name="RIGHT_BUTTON">TRUE</field>
+          <value name="VALUE">
+            <shadow type="objectList" id="{Ggi$p!._i%eA!yqmA;~">
+              <field name="FIELDNAME">topRight</field>
+            </shadow>
+          </value>
+          <statement name="DO">
+            <block type="controls_if" id="YJ:PdFBR7*MqM$[oI+)n">
+              <value name="IF0">
+                <block type="logic_negate" id="5=}ADHde}B`K/xf~zW+5">
+                  <value name="BOOL">
+                    <block type="variables_get" id="1cwzU7i0g,@aat;oqL*$">
+                      <field name="VAR" id="k{7maIWi:K7.o/3:[Q_b">rotating</field>
+                    </block>
+                  </value>
+                </block>
+              </value>
+              <statement name="DO0">
+                <block type="procedures_callnoreturn" id="LLa6IROP2.BuW9rL6to3">
+                  <mutation name="rotateTopRight">
+                    <arg name="y"></arg>
+                    <arg name="x"></arg>
+                  </mutation>
+                  <value name="ARG0">
+                    <block type="math_number" id="_jn5#@bE`T`x/_n;0eix">
+                      <field name="NUM">200</field>
+                    </block>
+                  </value>
+                  <value name="ARG1">
+                    <block type="math_number" id="d_[=BBF:3Gs:8D95e$=f">
+                      <field name="NUM">0</field>
+                    </block>
+                  </value>
+                </block>
+              </statement>
+            </block>
+          </statement>
+        </block>
+      </next>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="procedures_defnoreturn" id="/(z4^cD:u*?_mDErb!f*" x="-110" y="-130">
+      <mutation>
+        <arg name="y" varid="OBb]4j3GbWG.~Y).OY`)"></arg>
+        <arg name="x" varid=",8eU|gT`R:UYnrD|NRBZ"></arg>
+      </mutation>
+      <field name="NAME">rotateTopRight</field>
+      <comment pinned="false" h="80" w="160">Describe this function...</comment>
+      <statement name="STACK">
+        <block type="variables_set" id="rQ1:yf[+mS19(`WQ./,t">
+          <field name="VAR" id="k{7maIWi:K7.o/3:[Q_b">rotating</field>
+          <value name="VALUE">
+            <block type="logic_boolean" id="z)TT-zEbWu-vcWO@i}|G">
+              <field name="BOOL">TRUE</field>
+            </block>
+          </value>
+          <next>
+            <block type="playSound" id="s)IOclnK)Ep.lQz8]~@x">
+              <field name="LOOP">FALSE</field>
+              <value name="VALUE">
+                <block type="variables_get" id="#[b.:2ajK:WJc[LYI-cb">
+                  <field name="VAR" id="Q/#2hvkLh]2k]?euKmKJ">top_sound</field>
+                </block>
+              </value>
+              <next>
+                <block type="controls_ifelse" id="INT:(*sNsy}i0ac_271v">
+                  <value name="IF0">
+                    <block type="logic_compare" id="#~@Zt@]~i7oFbV=E%(N5">
+                      <field name="OP">GT</field>
+                      <value name="A">
+                        <block type="variables_get" id="azlbA3m*`+[[CH_-VrW~">
+                          <field name="VAR" id="OBb]4j3GbWG.~Y).OY`)">y</field>
+                        </block>
+                      </value>
+                      <value name="B">
+                        <block type="variables_get" id="j5V.9RG?h3j3euwSONmd">
+                          <field name="VAR" id=",8eU|gT`R:UYnrD|NRBZ">x</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO0">
+                    <block type="playAnimationAdv" id="-?|I21o[@EE7wAOi%d!/">
+                      <mutation xmlns="http://www.w3.org/1999/xhtml" advplaybackoptions="true" enablewhenfinished="true"></mutation>
+                      <field name="REVERSED">FALSE</field>
+                      <field name="LOOP">LoopOnce</field>
+                      <value name="VALUE">
+                        <block type="animationList" id="P}TiGXXuQPh#XqJ2F2jo">
+                          <field name="FIELDNAME">topRight</field>
+                        </block>
+                      </value>
+                      <value name="FROM">
+                        <shadow type="math_number" id="o~mci`:V+^nZUheV83mV">
+                          <field name="NUM">0</field>
+                        </shadow>
+                        <block type="variables_get" id="F=lSz%U@?/;3[K6op=1F">
+                          <field name="VAR" id=",8eU|gT`R:UYnrD|NRBZ">x</field>
+                        </block>
+                      </value>
+                      <value name="TO">
+                        <shadow type="math_number" id="#`Oeax|%lL_+cePucdSR">
+                          <field name="NUM">200</field>
+                        </shadow>
+                        <block type="variables_get" id="?]XaNXbL=fUWnx5P{[^9">
+                          <field name="VAR" id="OBb]4j3GbWG.~Y).OY`)">y</field>
+                        </block>
+                      </value>
+                      <value name="SPEED">
+                        <shadow type="math_number" id=",DmI/(WxN@4#Lms(.7?Q">
+                          <field name="NUM">1</field>
+                        </shadow>
+                      </value>
+                      <statement name="DO">
+                        <block type="variables_set" id="mM=[h!TFJsu18OUYS03q">
+                          <field name="VAR" id="]D+OYVGSCod/-E0i:mvL">top_status_right</field>
+                          <value name="VALUE">
+                            <block type="text" id="$5%nbhEUE33#u$Odn@io">
+                              <field name="TEXT">open</field>
+                            </block>
+                          </value>
+                          <next>
+                            <block type="stopSound" id="|.GYH|=iwWorih=C^@C0">
+                              <value name="VALUE">
+                                <block type="variables_get" id="$hHVe:Mx(kAH5KD6Z_?z">
+                                  <field name="VAR" id="Q/#2hvkLh]2k]?euKmKJ">top_sound</field>
+                                </block>
+                              </value>
+                              <next>
+                                <block type="variables_set" id=".wZ9wzL(kurS*n#wGOib">
+                                  <field name="VAR" id=".Y]a:y$S{t?8Vv3,UC!_">top_right_pos</field>
+                                  <value name="VALUE">
+                                    <block type="variables_get" id="8,KC`AXESGspl|P5P`PU">
+                                      <field name="VAR" id="OBb]4j3GbWG.~Y).OY`)">y</field>
+                                    </block>
+                                  </value>
+                                  <next>
+                                    <block type="variables_set" id="m=Jf-[}jnX8odsXm|n#5">
+                                      <field name="VAR" id="k{7maIWi:K7.o/3:[Q_b">rotating</field>
+                                      <value name="VALUE">
+                                        <block type="logic_boolean" id="]GO2geia`MpN,zp=_Z9,">
+                                          <field name="BOOL">FALSE</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </next>
+                                </block>
+                              </next>
+                            </block>
+                          </next>
+                        </block>
+                      </statement>
+                    </block>
+                  </statement>
+                  <statement name="ELSE">
+                    <block type="playAnimationAdv" id=";K(2dNmaJpI$w_zva?K+">
+                      <mutation xmlns="http://www.w3.org/1999/xhtml" advplaybackoptions="true" enablewhenfinished="true"></mutation>
+                      <field name="REVERSED">TRUE</field>
+                      <field name="LOOP">LoopOnce</field>
+                      <value name="VALUE">
+                        <block type="animationList" id="6iPY0~#0y.]h*]dpINOx">
+                          <field name="FIELDNAME">topRight</field>
+                        </block>
+                      </value>
+                      <value name="FROM">
+                        <shadow type="math_number" id="v-nj2ny#@V:/4%0v}Kz7">
+                          <field name="NUM">0</field>
+                        </shadow>
+                        <block type="variables_get" id="KW}x$VQ)Dg4?*XVPIk}=">
+                          <field name="VAR" id="OBb]4j3GbWG.~Y).OY`)">y</field>
+                        </block>
+                      </value>
+                      <value name="TO">
+                        <shadow type="math_number" id="fo[tu]7bMMa0tex_1AN?">
+                          <field name="NUM">200</field>
+                        </shadow>
+                        <block type="variables_get" id="AE-ygP+Cmo_Pp^7(Za@x">
+                          <field name="VAR" id=",8eU|gT`R:UYnrD|NRBZ">x</field>
+                        </block>
+                      </value>
+                      <value name="SPEED">
+                        <shadow type="math_number" id="@,/pAo3z-1mL-vIH%pWA">
+                          <field name="NUM">1</field>
+                        </shadow>
+                      </value>
+                      <statement name="DO">
+                        <block type="variables_set" id="*}0;/5oKH!Y9N8Mvzudx">
+                          <field name="VAR" id="]D+OYVGSCod/-E0i:mvL">top_status_right</field>
+                          <value name="VALUE">
+                            <block type="text" id="~]3N@eYOuLg_a8lwf_^S">
+                              <field name="TEXT">closed</field>
+                            </block>
+                          </value>
+                          <next>
+                            <block type="stopSound" id="#g*jSJiw(*g!+/:Q1?l/">
+                              <value name="VALUE">
+                                <block type="variables_get" id="wlc;X?:y6TfzpYdNgOL=">
+                                  <field name="VAR" id="Q/#2hvkLh]2k]?euKmKJ">top_sound</field>
+                                </block>
+                              </value>
+                              <next>
+                                <block type="variables_set" id="oh-!PUP8!yilk(}3PMsM">
+                                  <field name="VAR" id=".Y]a:y$S{t?8Vv3,UC!_">top_right_pos</field>
+                                  <value name="VALUE">
+                                    <block type="variables_get" id="g*8E;j=,.@1e.Q:3bm~^">
+                                      <field name="VAR" id="OBb]4j3GbWG.~Y).OY`)">y</field>
+                                    </block>
+                                  </value>
+                                  <next>
+                                    <block type="variables_set" id="M6mRw:AaQSgCiEEnGbY$">
+                                      <field name="VAR" id="k{7maIWi:K7.o/3:[Q_b">rotating</field>
+                                      <value name="VALUE">
+                                        <block type="logic_boolean" id="?a;]WX39KSDruR{pmrj1">
+                                          <field name="BOOL">FALSE</field>
+                                        </block>
+                                      </value>
+                                    </block>
+                                  </next>
+                                </block>
+                              </next>
+                            </block>
+                          </next>
+                        </block>
+                      </statement>
+                    </block>
+                  </statement>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="whenClicked" id="@sWjBT7-,IbkB@LZ#NT(" inline="false" x="-1210" y="230">
+      <mutation xmlns="http://www.w3.org/1999/xhtml" adveventoptions="false" enableifmissed="false"></mutation>
+      <field name="X_RAY">FALSE</field>
+      <field name="DOUBLE_CLICK">FALSE</field>
+      <field name="LEFT_BUTTON">TRUE</field>
+      <field name="MIDDLE_BUTTON">TRUE</field>
+      <field name="RIGHT_BUTTON">TRUE</field>
+      <value name="VALUE">
+        <shadow type="objectList" id="d+j,$vP=SzbbswBAX7O/">
+          <field name="FIELDNAME">fan</field>
+        </shadow>
+      </value>
+      <statement name="DO">
+        <block type="variables_set" id="7}.HOGJ6:T2FKo%[U|r1">
+          <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+          <value name="VALUE">
+            <block type="math_arithmetic" id="JAszG-r;,AaHrC+m8Ez2">
+              <field name="OP">ADD</field>
+              <value name="A">
+                <shadow type="math_number" id="(D|VM~e3ljT=]pPu`LUM">
+                  <field name="NUM">2</field>
+                </shadow>
+                <block type="variables_get" id="Y=WPiU57;O}L.5Kp%KZ=">
+                  <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+                </block>
+              </value>
+              <value name="B">
+                <shadow type="math_number" id="cZa+,B7J%vw*x;tyI@~H">
+                  <field name="NUM">1</field>
+                </shadow>
+              </value>
+            </block>
+          </value>
+          <next>
+            <block type="controls_if" id="(Ddjip7Yy5(4m?;L-q%A">
+              <value name="IF0">
+                <block type="logic_compare" id="l;eE,B|n,M7[OMS?:hx{">
+                  <field name="OP">GT</field>
+                  <value name="A">
+                    <block type="variables_get" id="Q/NgJW=KVUa[X(,nj!PY">
+                      <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+                    </block>
+                  </value>
+                  <value name="B">
+                    <block type="math_number" id="(m[^bC0+~r#?{b{3?[hd">
+                      <field name="NUM">0</field>
+                    </block>
+                  </value>
+                </block>
+              </value>
+              <statement name="DO0">
+                <block type="playAnimationAdv" id="p;77q1n|^NQkh9G`tS7c">
+                  <mutation xmlns="http://www.w3.org/1999/xhtml" advplaybackoptions="false" enablewhenfinished="false"></mutation>
+                  <field name="REVERSED">FALSE</field>
+                  <field name="LOOP">LoopRepeat</field>
+                  <value name="VALUE">
+                    <shadow type="animationList" id="U/T{qv#^2-(((.Q;W^@W">
+                      <field name="FIELDNAME">propeller</field>
+                    </shadow>
+                  </value>
+                  <next>
+                    <block type="setAnimationSpeed" id="$B%1`eo$;.N4kkSg[uBO">
+                      <field name="REVERSED">FALSE</field>
+                      <value name="VALUE">
+                        <shadow type="animationList" id="[FuIg$dF_6w!Lde@r,%I">
+                          <field name="FIELDNAME">propeller</field>
+                        </shadow>
+                      </value>
+                      <value name="SPEED">
+                        <shadow type="math_number" id="Y%?mMJ0]D#oNJAFEa(%E">
+                          <field name="NUM">3</field>
+                        </shadow>
+                        <block type="math_arithmetic" id="I_FQcC}XZQ2)_C|@k3l(">
+                          <field name="OP">MULTIPLY</field>
+                          <value name="A">
+                            <shadow type="math_number" id=";bCi[a]f)CH6$V-YrxAp">
+                              <field name="NUM">2</field>
+                            </shadow>
+                            <block type="variables_get" id="ZMw4|(3ZxT`|BwQszGH[">
+                              <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+                            </block>
+                          </value>
+                          <value name="B">
+                            <shadow type="math_number" id="CJu%~a1!owwspVF{tt|/">
+                              <field name="NUM">3</field>
+                            </shadow>
+                          </value>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="addAnnotation" id="7zmJpEV@$y:oL)U(zB0F">
+                          <mutation xmlns="http://www.w3.org/1999/xhtml" usenameslot="false"></mutation>
+                          <value name="ANNOTATION">
+                            <shadow type="text" id="eb+8o_vADGiZ_FO/ElCH">
+                              <field name="TEXT">1</field>
+                            </shadow>
+                            <block type="variables_get" id="U8Y3w^L}c3oL|T0U5rcA">
+                              <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+                            </block>
+                          </value>
+                          <value name="TARGET">
+                            <shadow type="objectList" id="Tn=vmi?03nedLlE,INk4">
+                              <field name="FIELDNAME">fan</field>
+                            </shadow>
+                          </value>
+                          <value name="CONTENTS">
+                            <shadow type="text" id="Tu+GHh~is5FNFCb`hMP9">
+                              <field name="TEXT">Point of interest #1</field>
+                            </shadow>
+                          </value>
+                          <value name="ID">
+                            <shadow type="text" id="nlmvoesf*S)He2Hx*s%/">
+                              <field name="TEXT">poi1</field>
+                            </shadow>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </next>
+                </block>
+              </statement>
+              <next>
+                <block type="controls_if" id="qlDN1RXAdk+=9ik(/Unc">
+                  <value name="IF0">
+                    <block type="logic_compare" id="pmM4Aj|q0r+=@(*bxc%c">
+                      <field name="OP">GTE</field>
+                      <value name="A">
+                        <block type="variables_get" id="c|%qKs-(4GPFG[Vbtd@H">
+                          <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+                        </block>
+                      </value>
+                      <value name="B">
+                        <block type="math_number" id="je[Ag]e)QA*$PQ*2TE}d">
+                          <field name="NUM">6</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO0">
+                    <block type="variables_set" id="CoU9kGjgB3y1Lo:jBja8">
+                      <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="T.WuFj,8yaMV,=|u(|bY">
+                          <field name="NUM">0</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="stopAnimation" id="dmms?y_emy5(p;[[$fE(">
+                          <value name="VALUE">
+                            <shadow type="animationList" id="+K7alB8H9p_y3F)kz8K4">
+                              <field name="FIELDNAME">propeller</field>
+                            </shadow>
+                          </value>
+                          <next>
+                            <block type="removeAnnotation" id="n1cc=viu/G;O%/g*jaD4">
+                              <value name="TARGET">
+                                <shadow type="objectList" id="zn@kk?]NC|)Gdij@e]8X">
+                                  <field name="FIELDNAME">fan</field>
+                                </shadow>
+                              </value>
+                            </block>
+                          </next>
+                        </block>
+                      </next>
+                    </block>
+                  </statement>
+                  <next>
+                    <block type="setHTMLElemAttribute" id="ae{KzhLK+vSm::5t[|Wz">
+                      <field name="ATTRIBUTE">value</field>
+                      <field name="PARENT">TRUE</field>
+                      <value name="VALUE">
+                        <block type="variables_get" id="dW[T~Jb6kj6`1zz0wE_D">
+                          <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+                        </block>
+                      </value>
+                      <value name="ID">
+                        <shadow type="text" id="8Y)@+IzRS)07^VD}CMo=">
+                          <field name="TEXT">slider</field>
+                        </shadow>
+                      </value>
+                    </block>
+                  </next>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="eventHTMLElem" id="WJJW)Zzvq,A0z$m2Vr%B" x="290" y="750">
+      <field name="EVENT">change</field>
+      <field name="PARENT">TRUE</field>
+      <value name="ID">
+        <shadow type="text" id="vzKqZX2p|pSAs,V%,W!t">
+          <field name="TEXT">sliderTopLeft</field>
+        </shadow>
+      </value>
+      <statement name="DO">
+        <block type="controls_if" id="AXKTGBZ:;S.Cy1eoZbTu">
+          <value name="IF0">
+            <block type="logic_negate" id="Z6i+?h*I^jx3/UV?C+v#">
+              <value name="BOOL">
+                <block type="variables_get" id=".U)_Vwu8*rLtznk:.X++">
+                  <field name="VAR" id="k{7maIWi:K7.o/3:[Q_b">rotating</field>
+                </block>
+              </value>
+            </block>
+          </value>
+          <statement name="DO0">
+            <block type="procedures_callnoreturn" id="(I$UN{p+6FT$}n.2RsE%">
+              <mutation name="rotateTopLeft">
+                <arg name="y"></arg>
+                <arg name="x"></arg>
+              </mutation>
+              <value name="ARG0">
+                <block type="getHTMLElemAttribute" id="k`3Fuzlj?gm)Zs~0aUFL">
+                  <field name="ATTRIBUTE">value</field>
+                  <field name="PARENT">TRUE</field>
+                  <value name="ID">
+                    <shadow type="text" id="]MY$ian*V!`7=JY*qk[,">
+                      <field name="TEXT">sliderTopLeft</field>
+                    </shadow>
+                  </value>
+                </block>
+              </value>
+              <value name="ARG1">
+                <block type="variables_get" id="XBp@]oEzLjm0lWs,^$f%">
+                  <field name="VAR" id="t1c/4`^`AzVesYYAH}Sa">top_left_pos</field>
+                </block>
+              </value>
+            </block>
+          </statement>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="eventHTMLElem" id="KM5K`81PceuD_$5#l5m!" x="-1210" y="1070">
+      <field name="EVENT">click</field>
+      <field name="PARENT">TRUE</field>
+      <value name="ID">
+        <shadow type="text" id="(.V0f#tJYSL3XQzMG48_">
+          <field name="TEXT">lights</field>
+        </shadow>
+      </value>
+      <statement name="DO">
+        <block type="controls_ifelse" id="|^pbv@JfG=}Nrl!x=dV~">
+          <value name="IF0">
+            <block type="getHTMLElemAttribute" id="Qy9]:{D|SupIaA/R)/TV">
+              <field name="ATTRIBUTE">checked</field>
+              <field name="PARENT">TRUE</field>
+              <value name="ID">
+                <shadow type="text" id="n4[?7k8WgC?#LBg(WxeJ">
+                  <field name="TEXT">lights</field>
+                </shadow>
+              </value>
+            </block>
+          </value>
+          <statement name="DO0">
+            <block type="setMaterialValue" id="}w,44f$cG|L=N~jQ]uzo">
+              <mutation xmlns="http://www.w3.org/1999/xhtml" flexvalinput="false"></mutation>
+              <field name="MAT_VAL_NAME">Value</field>
+              <value name="MATERIAL">
+                <shadow type="materialList" id="1F9`*@4$q/k##(hKvc1?">
+                  <field name="FIELDNAME">glass_transparant</field>
+                </shadow>
+              </value>
+              <value name="VALUE">
+                <shadow type="math_number" id="*ZIe*t2H|CVxD!jd}UMa">
+                  <field name="NUM">0.2</field>
+                </shadow>
+              </value>
+            </block>
+          </statement>
+          <statement name="ELSE">
+            <block type="setMaterialValue" id="[hRGatdEO1`mjL:Hjq$B">
+              <mutation xmlns="http://www.w3.org/1999/xhtml" flexvalinput="false"></mutation>
+              <field name="MAT_VAL_NAME">Value</field>
+              <value name="MATERIAL">
+                <shadow type="materialList" id="JCPOOCjTAOcmNlS.;)(:">
+                  <field name="FIELDNAME">glass_transparant</field>
+                </shadow>
+              </value>
+              <value name="VALUE">
+                <shadow type="math_number" id="5Fb%DKg)s|z0mixM@fvc">
+                  <field name="NUM">0.5</field>
+                </shadow>
+              </value>
+            </block>
+          </statement>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="eventHTMLElem" id="sV[X5m=][qnjdb?BVBa0" x="-510" y="1070">
+      <field name="EVENT">change</field>
+      <field name="PARENT">TRUE</field>
+      <value name="ID">
+        <shadow type="text" id="($!K%X;+a4Aj]!J#NuG)">
+          <field name="TEXT">sliderFan</field>
+        </shadow>
+      </value>
+      <statement name="DO">
+        <block type="console.log" id="-u|wK*MpkmaE7:d~jcT#">
+          <value name="VALUE">
+            <shadow type="text" id="#.FdT.RYU`1c}Q6h^.Z!">
+              <field name="TEXT">Hello, Verge!</field>
+            </shadow>
+            <block type="getHTMLElemAttribute" id="eYSJb*gz5t;!,l;0ND=e">
+              <field name="ATTRIBUTE">value</field>
+              <field name="PARENT">TRUE</field>
+              <value name="ID">
+                <shadow type="text" id="V~%ims=07m,cs+I{_tcB">
+                  <field name="TEXT">sliderFan</field>
+                </shadow>
+              </value>
+            </block>
+          </value>
+          <next>
+            <block type="variables_set" id="MZ**AJt{OO{h,Yvxc2?e">
+              <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+              <value name="VALUE">
+                <block type="getHTMLElemAttribute" id="ppps{Zu}KU?kw*Ke??Cd">
+                  <field name="ATTRIBUTE">value</field>
+                  <field name="PARENT">TRUE</field>
+                  <value name="ID">
+                    <shadow type="text" id="heL.#7?bu47MCR=TgNQQ">
+                      <field name="TEXT">sliderFan</field>
+                    </shadow>
+                  </value>
+                </block>
+              </value>
+              <next>
+                <block type="playAnimationAdv" id="a+U^*%J0,AE-@;VNP[.Y">
+                  <mutation xmlns="http://www.w3.org/1999/xhtml" advplaybackoptions="false" enablewhenfinished="false"></mutation>
+                  <field name="REVERSED">FALSE</field>
+                  <field name="LOOP">LoopRepeat</field>
+                  <value name="VALUE">
+                    <shadow type="animationList" id="*]d8hym2_#sV#b1F{Qg_">
+                      <field name="FIELDNAME">propeller</field>
+                    </shadow>
+                  </value>
+                  <next>
+                    <block type="setAnimationSpeed" id="SBh#J.|$?B}3|)1SsHV7">
+                      <field name="REVERSED">FALSE</field>
+                      <value name="VALUE">
+                        <shadow type="animationList" id="F9:c56%To*#l}O|k87ld">
+                          <field name="FIELDNAME">propeller</field>
+                        </shadow>
+                      </value>
+                      <value name="SPEED">
+                        <shadow type="math_number" id="Y%?mMJ0]D#oNJAFEa(%E">
+                          <field name="NUM">3</field>
+                        </shadow>
+                        <block type="math_arithmetic" id="6C$yvqvF7JFzxsN0xF*h">
+                          <field name="OP">MULTIPLY</field>
+                          <value name="A">
+                            <shadow type="math_number" id=";bCi[a]f)CH6$V-YrxAp">
+                              <field name="NUM">2</field>
+                            </shadow>
+                            <block type="variables_get" id="Wjv)?z$)${Q1ka2p8*^a">
+                              <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+                            </block>
+                          </value>
+                          <value name="B">
+                            <shadow type="math_number" id=".rXOs@pXkV:o=4z^BAm:">
+                              <field name="NUM">3</field>
+                            </shadow>
+                          </value>
+                        </block>
+                      </value>
+                    </block>
+                  </next>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="eventHTMLElem" id="(zBPFa:t-6:gw+ZvtEz2" x="250" y="1070">
+      <field name="EVENT">change</field>
+      <field name="PARENT">TRUE</field>
+      <value name="ID">
+        <shadow type="text" id="zR@i*W|t5.*Yd[.PsGxD">
+          <field name="TEXT">sliderTopRight</field>
+        </shadow>
+      </value>
+      <statement name="DO">
+        <block type="controls_if" id="[21=;AHjdF@JCG,K)@8^">
+          <value name="IF0">
+            <block type="logic_negate" id="xruQvYy1,!_IqZ^$*QB]">
+              <value name="BOOL">
+                <block type="variables_get" id="HHto$zQu=NxQWp,R9NZv">
+                  <field name="VAR" id="k{7maIWi:K7.o/3:[Q_b">rotating</field>
+                </block>
+              </value>
+            </block>
+          </value>
+          <statement name="DO0">
+            <block type="procedures_callnoreturn" id="UCnnw0i0PNj^owT;ms=i">
+              <mutation name="rotateTopRight">
+                <arg name="y"></arg>
+                <arg name="x"></arg>
+              </mutation>
+              <value name="ARG0">
+                <block type="getHTMLElemAttribute" id="tR[jFj?9J*hAfmEVSh@T">
+                  <field name="ATTRIBUTE">value</field>
+                  <field name="PARENT">TRUE</field>
+                  <value name="ID">
+                    <shadow type="text" id="cX51Hr`pkx1nR|pDIcDc">
+                      <field name="TEXT">sliderTopRight</field>
+                    </shadow>
+                  </value>
+                </block>
+              </value>
+              <value name="ARG1">
+                <block type="variables_get" id="L8L*;sv%AVTsg|@(*HQ(">
+                  <field name="VAR" id=".Y]a:y$S{t?8Vv3,UC!_">top_right_pos</field>
+                </block>
+              </value>
+            </block>
+          </statement>
+        </block>
+      </statement>
+    </block>
+  </tab>
+  <tab name="Interface" type="CommonTab" active="false" scrollx="-61.99999999999977" scrolly="-20.799999999999955" scale="0.9">
+    <block xmlns="https://developers.google.com/blockly/xml" type="initFullscreen" id="|QU7Nu_!ycU)JgC[7rD." x="110" y="150">
+      <field name="PARENT">TRUE</field>
+      <value name="ID">
+        <block type="text" id="f2au8H20}UOpswE]lbI9">
+          <field name="TEXT">fullscreen-button</field>
+        </block>
+      </value>
+      <statement name="DO_ENTER">
+        <block type="setHTMLElemStyle" id="XN08lAO}^sFYJKiXTeB1">
+          <field name="PROPERTY">backgroundImage</field>
+          <field name="PARENT">TRUE</field>
+          <value name="VALUE">
+            <block type="text" id="_O?hLn61nghN7qS)2][=">
+              <field name="TEXT">url(./media/fullscreen-close.png)</field>
+            </block>
+          </value>
+          <value name="ID">
+            <block type="text" id="eQh`kiI+#opMqoAj`P5A">
+              <field name="TEXT">fullscreen-button</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="DO_EXIT">
+        <block type="setHTMLElemStyle" id="]c_-y_b[FuevN/=#U,K`">
+          <field name="PROPERTY">backgroundImage</field>
+          <field name="PARENT">TRUE</field>
+          <value name="VALUE">
+            <block type="text" id="{mM/my6$d4Iw6-5cTW`6">
+              <field name="TEXT">url(./media/fullscreen-open.png)</field>
+            </block>
+          </value>
+          <value name="ID">
+            <block type="text" id="|{a]?}lZH(ZfA-GPlcae">
+              <field name="TEXT">fullscreen-button</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="DO_UNAVAIL">
+        <block type="setHTMLElemStyle" id="Y/$oj;H/qN(jXX4HC.Cc">
+          <field name="PROPERTY">visibility</field>
+          <field name="PARENT">TRUE</field>
+          <value name="VALUE">
+            <block type="text" id="01+15Le@?uN2aSYM$yNO">
+              <field name="TEXT">hidden</field>
+            </block>
+          </value>
+          <value name="ID">
+            <block type="text" id="lLN;#7Leg`~/J8LG+g?m">
+              <field name="TEXT">fullscreen-button</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+    </block>
+  </tab>
+  <editorsettings viewport-x="1134" viewport-y="37" viewport-w="768" viewport-h="459.5" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+</xml>
