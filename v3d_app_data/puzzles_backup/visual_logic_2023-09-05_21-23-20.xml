@@ -1,0 +1,146 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tab name="Init" type="InitTab" active="false" scrollx="19.999999999999773" scrolly="0" scale="0.9"></tab>
+  <tab name="New Tab" type="CommonTab" active="true" scrollx="20" scrolly="20.000000000000114" scale="0.9">
+    <variables xmlns="https://developers.google.com/blockly/xml">
+      <variable id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</variable>
+    </variables>
+    <block xmlns="https://developers.google.com/blockly/xml" type="variables_set" id="8~=oubGe;OR(Mj+V[1SQ" x="150" y="10">
+      <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+      <value name="VALUE">
+        <block type="math_number" id="{7rC4hd{a,4TX4p$Z|K;">
+          <field name="NUM">1</field>
+        </block>
+      </value>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="stopAnimation" id="X)[i`(0#Byi()y}[j_^#" x="150" y="90">
+      <value name="VALUE">
+        <shadow type="animationList" id="00V{}+n#BNkFJRhJIh?o">
+          <field name="FIELDNAME">Mesh10</field>
+        </shadow>
+      </value>
+      <next>
+        <block type="stopAnimation" id="UB)r#+g2`MIZ~y-m=tc]">
+          <value name="VALUE">
+            <shadow type="animationList" id="{KK~QF,SHfR/J{tI.W?z">
+              <field name="FIELDNAME">Mesh11</field>
+            </shadow>
+          </value>
+          <next>
+            <block type="stopAnimation" id="!YNYhZ+:TM2m3,$H=Ab~">
+              <value name="VALUE">
+                <shadow type="animationList" id="]*5yU0i;Z1shfD9o_[uD">
+                  <field name="FIELDNAME">Cylinder.002</field>
+                </shadow>
+              </value>
+              <next>
+                <block type="playAnimationAdv" id="Dz,V|Xzn]u`J^s$MX?C$">
+                  <mutation xmlns="http://www.w3.org/1999/xhtml" advplaybackoptions="false" enablewhenfinished="false"></mutation>
+                  <field name="REVERSED">FALSE</field>
+                  <field name="LOOP">LoopOnce</field>
+                  <value name="VALUE">
+                    <shadow type="animationList" id="[P~YZ.?Rr+W0GGqo#B0Q">
+                      <field name="FIELDNAME">Mesh10</field>
+                    </shadow>
+                  </value>
+                  <next>
+                    <block type="onAnimationFrameDo" id="s[Y$kr_*ligK443{Y%Zy">
+                      <value name="ANIM">
+                        <shadow type="animationList" id="xW%HH-`%a_^19Qrx/Dm@">
+                          <field name="FIELDNAME">Mesh10</field>
+                        </shadow>
+                      </value>
+                      <value name="FRAME">
+                        <shadow type="math_number" id="`UL6qz~/C}kvOHfb8l_+">
+                          <field name="NUM">190</field>
+                        </shadow>
+                      </value>
+                      <statement name="DO">
+                        <block type="playAnimationAdv" id="*pnB0JGYR$B?4[%13F+E">
+                          <mutation xmlns="http://www.w3.org/1999/xhtml" advplaybackoptions="false" enablewhenfinished="false"></mutation>
+                          <field name="REVERSED">FALSE</field>
+                          <field name="LOOP">LoopOnce</field>
+                          <value name="VALUE">
+                            <shadow type="animationList" id="@i$p_W,Mk$NCqJ8|i2bT">
+                              <field name="FIELDNAME">Mesh11</field>
+                            </shadow>
+                          </value>
+                        </block>
+                      </statement>
+                    </block>
+                  </next>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </next>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="whenClicked" id="?%UuHB.Sb^_K)os0beVQ" inline="false" x="150" y="370">
+      <mutation xmlns="http://www.w3.org/1999/xhtml" adveventoptions="false" enableifmissed="false"></mutation>
+      <field name="X_RAY">FALSE</field>
+      <field name="DOUBLE_CLICK">FALSE</field>
+      <field name="LEFT_BUTTON">TRUE</field>
+      <field name="MIDDLE_BUTTON">TRUE</field>
+      <field name="RIGHT_BUTTON">TRUE</field>
+      <value name="VALUE">
+        <shadow type="objectList" id="yM87i]pS/h3kmx30(lPj">
+          <field name="FIELDNAME">Torus.001</field>
+        </shadow>
+      </value>
+      <statement name="DO">
+        <block type="playAnimationAdv" id="US]O#kU[JoILhtuuhsC=">
+          <mutation xmlns="http://www.w3.org/1999/xhtml" advplaybackoptions="false" enablewhenfinished="false"></mutation>
+          <field name="REVERSED">FALSE</field>
+          <field name="LOOP">LoopRepeat</field>
+          <value name="VALUE">
+            <shadow type="animationList" id="jxg`t9}tIeCP/urc5yN2">
+              <field name="FIELDNAME">Cylinder.002</field>
+            </shadow>
+          </value>
+          <next>
+            <block type="setAnimationSpeed" id="$1Hi6i-KIQ{+/wDc~`3T">
+              <field name="REVERSED">FALSE</field>
+              <value name="VALUE">
+                <shadow type="animationList" id=":,-Rr:f~:0/g!NUbVL78">
+                  <field name="FIELDNAME">Cylinder.002</field>
+                </shadow>
+              </value>
+              <value name="SPEED">
+                <shadow type="math_number" id="sjLQ|i(5=s!3E+a_QQJk">
+                  <field name="NUM">3</field>
+                </shadow>
+                <block type="variables_get" id="Y#Of*Rl]]Wn^Wv!B|CdB">
+                  <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+                </block>
+              </value>
+              <next>
+                <block type="variables_set" id="H5[kQe=bV]kUZ~m]7uhM">
+                  <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+                  <value name="VALUE">
+                    <block type="math_arithmetic" id="!3Q@*:EF;`{7mMH-EN;P">
+                      <field name="OP">ADD</field>
+                      <value name="A">
+                        <shadow type="math_number" id="yok@Dk?@DNJ$VEl%|1rI">
+                          <field name="NUM">2</field>
+                        </shadow>
+                        <block type="variables_get" id="vwO@Ft7xG8ZrnO1ufF#;">
+                          <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+                        </block>
+                      </value>
+                      <value name="B">
+                        <shadow type="math_number" id="kqWfT9(+tHL8[xBEy%lS">
+                          <field name="NUM">1</field>
+                        </shadow>
+                      </value>
+                    </block>
+                  </value>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+  </tab>
+  <editorsettings viewport-x="1134" viewport-y="37" viewport-w="768" viewport-h="459.5" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+</xml>

@@ -1,0 +1,224 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tab name="Init" type="InitTab" active="false" scrollx="19.999999999999773" scrolly="0" scale="0.9"></tab>
+  <tab name="Code" type="CommonTab" active="true" scrollx="19.99999999999909" scrolly="20.00000000000017" scale="0.9">
+    <variables xmlns="https://developers.google.com/blockly/xml">
+      <variable id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</variable>
+    </variables>
+    <block xmlns="https://developers.google.com/blockly/xml" type="variables_set" id="8~=oubGe;OR(Mj+V[1SQ" x="150" y="10">
+      <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+      <value name="VALUE">
+        <block type="math_number" id="{7rC4hd{a,4TX4p$Z|K;">
+          <field name="NUM">1</field>
+        </block>
+      </value>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="stopAnimation" id="X)[i`(0#Byi()y}[j_^#" x="150" y="90">
+      <value name="VALUE">
+        <shadow type="animationList" id="00V{}+n#BNkFJRhJIh?o">
+          <field name="FIELDNAME">topLeft</field>
+        </shadow>
+      </value>
+      <next>
+        <block type="stopAnimation" id="UB)r#+g2`MIZ~y-m=tc]">
+          <value name="VALUE">
+            <shadow type="animationList" id="{KK~QF,SHfR/J{tI.W?z">
+              <field name="FIELDNAME">topRight</field>
+            </shadow>
+          </value>
+          <next>
+            <block type="stopAnimation" id="!YNYhZ+:TM2m3,$H=Ab~">
+              <value name="VALUE">
+                <shadow type="animationList" id="]*5yU0i;Z1shfD9o_[uD">
+                  <field name="FIELDNAME">Cylinder.002</field>
+                </shadow>
+              </value>
+            </block>
+          </next>
+        </block>
+      </next>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="whenClicked" id="?%UuHB.Sb^_K)os0beVQ" inline="false" x="150" y="370">
+      <mutation xmlns="http://www.w3.org/1999/xhtml" adveventoptions="false" enableifmissed="false"></mutation>
+      <field name="X_RAY">FALSE</field>
+      <field name="DOUBLE_CLICK">FALSE</field>
+      <field name="LEFT_BUTTON">TRUE</field>
+      <field name="MIDDLE_BUTTON">TRUE</field>
+      <field name="RIGHT_BUTTON">TRUE</field>
+      <value name="VALUE">
+        <shadow type="objectList" id="yM87i]pS/h3kmx30(lPj">
+          <field name="FIELDNAME">Torus.001</field>
+        </shadow>
+      </value>
+      <statement name="DO">
+        <block type="playAnimationAdv" id="US]O#kU[JoILhtuuhsC=">
+          <mutation xmlns="http://www.w3.org/1999/xhtml" advplaybackoptions="false" enablewhenfinished="false"></mutation>
+          <field name="REVERSED">FALSE</field>
+          <field name="LOOP">LoopRepeat</field>
+          <value name="VALUE">
+            <shadow type="animationList" id="jxg`t9}tIeCP/urc5yN2">
+              <field name="FIELDNAME">Cylinder.002</field>
+            </shadow>
+          </value>
+          <next>
+            <block type="setAnimationSpeed" id="$1Hi6i-KIQ{+/wDc~`3T">
+              <field name="REVERSED">FALSE</field>
+              <value name="VALUE">
+                <shadow type="animationList" id=":,-Rr:f~:0/g!NUbVL78">
+                  <field name="FIELDNAME">Cylinder.002</field>
+                </shadow>
+              </value>
+              <value name="SPEED">
+                <shadow type="math_number" id="sjLQ|i(5=s!3E+a_QQJk">
+                  <field name="NUM">3</field>
+                </shadow>
+                <block type="variables_get" id="Y#Of*Rl]]Wn^Wv!B|CdB">
+                  <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+                </block>
+              </value>
+              <next>
+                <block type="variables_set" id="H5[kQe=bV]kUZ~m]7uhM">
+                  <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+                  <value name="VALUE">
+                    <block type="math_arithmetic" id="!3Q@*:EF;`{7mMH-EN;P">
+                      <field name="OP">ADD</field>
+                      <value name="A">
+                        <shadow type="math_number" id="yok@Dk?@DNJ$VEl%|1rI">
+                          <field name="NUM">2</field>
+                        </shadow>
+                        <block type="variables_get" id="vwO@Ft7xG8ZrnO1ufF#;">
+                          <field name="VAR" id="lr6$8|5[Qf?WdF0mTim-">fanSpeed</field>
+                        </block>
+                      </value>
+                      <value name="B">
+                        <shadow type="math_number" id="kqWfT9(+tHL8[xBEy%lS">
+                          <field name="NUM">1</field>
+                        </shadow>
+                      </value>
+                    </block>
+                  </value>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="addAnnotation" id="kQQ0I?s|c{OQhwD3}hl`" disabled="true" x="150" y="590">
+      <mutation xmlns="http://www.w3.org/1999/xhtml" usenameslot="false"></mutation>
+      <value name="ANNOTATION">
+        <shadow type="text" id=")D?J,WQdB~4(Dk[uXJk]">
+          <field name="TEXT">1</field>
+        </shadow>
+      </value>
+      <value name="TARGET">
+        <shadow type="objectList" id="jV8tIYhO@G.AxNj-`1yB">
+          <field name="FIELDNAME">Torus.001</field>
+        </shadow>
+      </value>
+      <value name="CONTENTS">
+        <shadow type="text" id="F;r{|ZU8`^*[f=ZtgAcY">
+          <field name="TEXT">Point of interest #1</field>
+        </shadow>
+      </value>
+      <value name="ID">
+        <shadow type="text" id="gPUg1fHydOU-UY(`?~Tc">
+          <field name="TEXT">poi1</field>
+        </shadow>
+      </value>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="whenClicked" id="(c$hbC[nOcPG-n;PpN!+" inline="false" x="990" y="570">
+      <mutation xmlns="http://www.w3.org/1999/xhtml" adveventoptions="false" enableifmissed="false"></mutation>
+      <field name="X_RAY">FALSE</field>
+      <field name="DOUBLE_CLICK">FALSE</field>
+      <field name="LEFT_BUTTON">TRUE</field>
+      <field name="MIDDLE_BUTTON">TRUE</field>
+      <field name="RIGHT_BUTTON">TRUE</field>
+      <value name="VALUE">
+        <shadow type="objectList" id="Fheg)Sr`CCBEF/LRj8gz">
+          <field name="FIELDNAME">topLeft</field>
+        </shadow>
+      </value>
+      <statement name="DO">
+        <block type="playAnimationAdv" id="NTJkZ4_)uIq_0[c$+_%1">
+          <mutation xmlns="http://www.w3.org/1999/xhtml" advplaybackoptions="false" enablewhenfinished="false"></mutation>
+          <field name="REVERSED">FALSE</field>
+          <field name="LOOP">AUTO</field>
+          <value name="VALUE">
+            <shadow type="animationList" id="Y5vn.)HLPEXe32a;)MK#">
+              <field name="FIELDNAME">topLeft</field>
+            </shadow>
+          </value>
+          <next>
+            <block type="setAnimationSpeed" id="QEz:U%i=nQ:9Vw~ot4yq">
+              <field name="REVERSED">FALSE</field>
+              <value name="VALUE">
+                <shadow type="animationList" id=";b5YEqDl2B`5+eq.Al-u">
+                  <field name="FIELDNAME">topLeft</field>
+                </shadow>
+              </value>
+              <value name="SPEED">
+                <shadow type="math_number" id="sjLQ|i(5=s!3E+a_QQJk">
+                  <field name="NUM">3</field>
+                </shadow>
+              </value>
+            </block>
+          </next>
+        </block>
+      </statement>
+      <next>
+        <block type="whenClicked" id="]z2gthwNwz=!Gi==AxLu" inline="false">
+          <mutation xmlns="http://www.w3.org/1999/xhtml" adveventoptions="false" enableifmissed="false"></mutation>
+          <field name="X_RAY">FALSE</field>
+          <field name="DOUBLE_CLICK">FALSE</field>
+          <field name="LEFT_BUTTON">TRUE</field>
+          <field name="MIDDLE_BUTTON">TRUE</field>
+          <field name="RIGHT_BUTTON">TRUE</field>
+          <value name="VALUE">
+            <shadow type="objectList" id="d*j1f%MJ0=.eoGw3?W[O">
+              <field name="FIELDNAME">topRight</field>
+            </shadow>
+          </value>
+          <statement name="DO">
+            <block type="playAnimationAdv" id="bhQdU%[9B*/}=CO+-LNa">
+              <mutation xmlns="http://www.w3.org/1999/xhtml" advplaybackoptions="false" enablewhenfinished="false"></mutation>
+              <field name="REVERSED">FALSE</field>
+              <field name="LOOP">AUTO</field>
+              <value name="VALUE">
+                <shadow type="animationList" id="-owLYn1Jfw@h$9Xd#t)]">
+                  <field name="FIELDNAME">topRight</field>
+                </shadow>
+              </value>
+              <next>
+                <block type="setAnimationSpeed" id="|4;FS$V+A%!rC//wMJP2">
+                  <field name="REVERSED">FALSE</field>
+                  <value name="VALUE">
+                    <shadow type="animationList" id="gY7GMcItcb@Jyh.-fvMW">
+                      <field name="FIELDNAME">topRight</field>
+                    </shadow>
+                  </value>
+                  <value name="SPEED">
+                    <shadow type="math_number" id="1Eg)J$QP1$wx)U]hm~?r">
+                      <field name="NUM">3</field>
+                    </shadow>
+                  </value>
+                </block>
+              </next>
+            </block>
+          </statement>
+        </block>
+      </next>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="createObject" id="%4o{CFggq[=3g6_;hy;W" x="170" y="670">
+      <mutation xmlns="http://www.w3.org/1999/xhtml" object_type="LIGHT"></mutation>
+      <field name="TYPE">LIGHT</field>
+      <field name="CAMERA_TYPE">PERSPECTIVE</field>
+      <field name="LIGHT_TYPE">HEMISPHERE</field>
+      <value name="NAME">
+        <shadow type="text" id="Tp(Lsf|[G`d+u^*ew]!R">
+          <field name="TEXT">myObject</field>
+        </shadow>
+      </value>
+    </block>
+  </tab>
+  <editorsettings viewport-x="1134" viewport-y="37" viewport-w="768" viewport-h="459.5" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+</xml>
